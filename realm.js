@@ -121,6 +121,27 @@ const writeTransactionCreateCarAndPerson2 = () => {
     });
 }
 
+function sleep(ms = 0) {
+    return new Promise(r => setTimeout(r, ms));
+}
+
+const writeTransactionCreateCarAndPerson3 = () => {
+    let realm = new Realm({ schema: [Car, Person] });
+    realm.write(async () => {
+        realm.create('Car', {
+            id: 1,
+            make: 'Honda',
+            model: 'Civic',
+            miles: 1000,
+        }, true);
+        await sleep(300);
+        realm.create('Person', {
+            id: 1,
+            name: 'Charlie'
+        }, true);
+    });
+}
+
 export {
 clear,
 writeTransactionCreateCar,
@@ -130,5 +151,6 @@ getCars,
 writeTransactionCreatePerson,
 getPersons,
 writeTransactionCreateCarAndPerson,
-writeTransactionCreateCarAndPerson2
+writeTransactionCreateCarAndPerson2,
+writeTransactionCreateCarAndPerson3
 }

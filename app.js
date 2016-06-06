@@ -16,7 +16,8 @@ import {
     writeTransactionCreatePerson,
     getPersons,
     writeTransactionCreateCarAndPerson,
-    writeTransactionCreateCarAndPerson2
+    writeTransactionCreateCarAndPerson2,
+    writeTransactionCreateCarAndPerson3
 } from './realm';
 
 export default class ReactNativeRealmSandbox extends Component {
@@ -77,16 +78,22 @@ export default class ReactNativeRealmSandbox extends Component {
         clear();
         this.setState({ carText: 'null', personText: 'null' });
     };
-    
+
     onPressCreateCarAndPerson = () => {
         console.log('onPressCreateCarAndPerson');
         writeTransactionCreateCarAndPerson();
         this.disp();
     }
-    
+
     onPressCreateCarAndPerson2 = () => {
         console.log('onPressCreateCarAndPerson2');
         writeTransactionCreateCarAndPerson2();
+        this.disp();
+    }
+
+    onPressCreateCarAndPerson3 = () => {
+        console.log('onPressCreateCarAndPerson2');
+        writeTransactionCreateCarAndPerson3();
         this.disp();
     }
 
@@ -121,7 +128,7 @@ export default class ReactNativeRealmSandbox extends Component {
                     >
                     Clear Data
                 </Button>
-                
+
                 <Button
                     style={{ fontSize: 20, color: '#00c213' }}
                     styleDisabled={{ color: 'gray' }}
@@ -144,13 +151,21 @@ export default class ReactNativeRealmSandbox extends Component {
                     >
                     Create Car and Person
                 </Button>
-                
+
                 <Button
-                    style={{ fontSize: 20, color: '#0013c2' }}
+                    style={{ fontSize: 20, color: '#006bc2' }}
                     styleDisabled={{ color: 'gray' }}
                     onPress={this.onPressCreateCarAndPerson2}
                     >
                     Create Car and Person 2
+                </Button>
+
+                <Button
+                    style={{ fontSize: 20, color: '#0013c2' }}
+                    styleDisabled={{ color: 'gray' }}
+                    onPress={this.onPressCreateCarAndPerson3}
+                    >
+                    Create Car and Person 3 (Not worked!)
                 </Button>
 
             </View>
