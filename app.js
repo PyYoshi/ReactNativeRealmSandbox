@@ -92,7 +92,7 @@ export default class ReactNativeRealmSandbox extends Component {
     }
 
     onPressCreateCarAndPerson3 = () => {
-        console.log('onPressCreateCarAndPerson2');
+        console.log('onPressCreateCarAndPerson3');
         writeTransactionCreateCarAndPerson3();
         this.disp();
     }
